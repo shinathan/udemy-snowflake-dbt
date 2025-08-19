@@ -6,8 +6,7 @@ with cte as (
     {{day_type('STARTED_AT')}} as DAY_TYPE,
     {{get_season('STARTED_AT')}} as SEASON_OF_YEAR
 
-    from
-    {{ source('demo', 'bike') }}
+    from {{ ref('stg_bike')}}
     limit 999999 offset 1
 )
 
